@@ -120,10 +120,10 @@ output[6:0] HEX1;
 output[6:0] HEX2;
 output[6:0] HEX3;
 
-dec_to_hex(6,HEX0);
-dec_to_hex(1,HEX1);
-dec_to_hex(4,HEX2);
-dec_to_hex(5,HEX3);
+dec_to_hex(5,HEX0);
+dec_to_hex(4,HEX1);
+dec_to_hex(1,HEX2);
+dec_to_hex(6,HEX3);
 
 
 endmodule
