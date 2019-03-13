@@ -88,7 +88,7 @@ endmodule
 // dla danej cyfry na wejściu zwraca zestaw bitów odpowiadający układowi diod
 // wyświetlacza siedmiosegmentowego wyświetlającego tę cyfrę.
 
-module dec_to_hex(dec, hex);
+module zad1(dec, hex);
 input [3:0] dec;
 output reg [6:0] hex;
 
@@ -98,7 +98,7 @@ case (dec)
 	1: hex = 7'b1111001;
 	2: hex = 7'b0100100;
 	3: hex = 7'b0110000;
-	4: hex = 7'b001_1001;
+	4: hex = 7'b0011001;
 	5: hex = 7'b0010010;
  	6: hex = 7'b0000010;
 	7: hex = 7'b1111000;
@@ -138,7 +138,7 @@ case (dec)
 	1: hex = 7'b1111001;
 	2: hex = 7'b0100100;
 	3: hex = 7'b0110000;
-	4: hex = 7'b001_1001;
+	4: hex = 7'b0011001;
 	5: hex = 7'b0010010;
  	6: hex = 7'b0000010;
 	7: hex = 7'b1111000;
