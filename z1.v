@@ -63,18 +63,18 @@ output[0:6] HEX3;
 //6
 assign HEX3[1]=1;
 //1
-assign HEX2[0]=1
-assign HEX2[5]=1
-assign HEX2[4]=1
-assign HEX2[6]=1
-assign HEX2[3]=1
+assign HEX2[0]=1;
+assign HEX2[5]=1;
+assign HEX2[4]=1;
+assign HEX2[6]=1;
+assign HEX2[3]=1;
 //4
-assign HEX1[0]=1
-assign HEX1[4]=1
-assign HEX1[3]=1
+assign HEX1[0]=1;
+assign HEX1[4]=1;
+assign HEX1[3]=1;
 //5
-assign HEX0[1]=1
-assign HEX0[4]=1
+assign HEX0[1]=1;
+assign HEX0[4]=1;
 
 endmodule
 
