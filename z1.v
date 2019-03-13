@@ -120,15 +120,15 @@ output[6:0] HEX1;
 output[6:0] HEX2;
 output[6:0] HEX3;
 
-dec_to_hex(5,HEX0);
-dec_to_hex(4,HEX1);
-dec_to_hex(1,HEX2);
-dec_to_hex(6,HEX3);
+convert_to_hex(5,HEX0);
+convert_to_hex(4,HEX1);
+convert_to_hex(1,HEX2);
+convert_to_hex(6,HEX3);
 
 
 endmodule
 
-module dec_to_hex(dec, hex);
+module convert_to_hex(dec, hex);
 input [3:0] dec;
 output reg [6:0] hex;
 
