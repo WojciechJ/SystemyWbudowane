@@ -1,4 +1,14 @@
----zad2.1---
+//Stwórz prosty kalkulator:
+
+//Pierwsza liczba to wartość bitowa na SW4-SW0.
+//Druga liczba to wartość bitowa na SW9-SW5.
+//Wynik wyświetla się w postaci binarnej na diodach LEDR.
+//Działanie należy wykonać, gdy wciśnięto przycisk:
+//KEY0 - dodawanie,
+//KEY1 - odejmowanie,
+//KEY2 - mnożenie.
+//Jeżeli wynikiem operacji (odejmowania) jest liczba mniejsza niż 0, 
+//wynik może być niepoprawny.
 
 module zad1 (SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3);
 input [9:0] SW;
@@ -13,17 +23,21 @@ output[6:0] HEX3;
 always
 if(KEY[0] == 0)
 	LEDR[9:0] = SW[9:5] + SW[4:0];
+	
 else if(KEY[1] == 0)
 	LEDR[9:0] = SW[9:5] - SW[4:0];
+	
 else if(KEY[2] == 0)
 	LEDR[9:0] = SW[9:5] * SW[4:0];
+	
 else
 	LEDR[9:0] = SW[9:0];
 endmodule
 
----zad2.2---
+//Rozbuduj kalkulator utworzony w poprzednim zadaniu o następującą funkcjonalność:
+//wynik powinien być wyświetlany na wyświetlaczu siedmiosegmentowym.
 
-module SWB (SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3);
+module zad1 (SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3);
 input [9:0] SW;
 input [3:0] KEY;
 output reg [9:0] LEDR;
@@ -33,10 +47,10 @@ output [6:0] HEX2;
 output [6:0] HEX3;
 
 
-dec_to_hex y0 (LEDR[9:0] % 10, HEX0);
-dec_to_hex y1 ((LEDR[9:0] / 10) %10 , HEX1);
-dec_to_hex y2 ((LEDR[9:0] / 100) %10, HEX2);
-dec_to_hex y3 ((LEDR[9:0] / 1000) %10, HEX3);
+convert_to_hex jednosci (LEDR[9:0] % 10, HEX0);
+convert_to_hex dziesiatki ((LEDR[9:0] / 10) %10 , HEX1);
+convert_to_hex setki ((LEDR[9:0] / 100) %10, HEX2);
+convert_to_hex tysiace ((LEDR[9:0] / 1000) %10, HEX3);
 
 always
 if(KEY[0] == 0)
@@ -50,7 +64,7 @@ else
 
 endmodule
 
-module dec_to_hex(dec, hex);
+module convert_to_hex(dec, hex);
 input [3:0] dec;
 output reg [6:0] hex;
 
@@ -69,8 +83,8 @@ case (dec)
 	default: hex = 7'b1111111;
 endcase
 endmodule
-
----zad2.3---
+//Rozbuduj kalkulator utworzony w poprzednim zadaniu o następującą funkcjonalność:
+//wynik powinien być wyświetlany na wyświetlaczu siedmiosegmentowym.
 
 module zad1 (SW, KEY, LEDR, HEX0, HEX1, HEX2, HEX3);
 input [9:0] SW;
