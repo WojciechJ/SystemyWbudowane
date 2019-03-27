@@ -87,17 +87,14 @@ module convert_to_hex(dec, hex);
 		endcase
 endmodule
 
-//Stwórz licznik, który zlicza liczbę sekund od uruchomienia układu. W tym celu skorzystaj z sygnału CLOCK_50.
-//Wciśnięcie przycisku KEY[0] powinno zerować licznik. Liczba zmierzonych sekund powinna być wyświetlana na wyświetlaczach siedmiosegmentowych HEX0 - HEX3.
-
-module zad1(HEX0,HEX1,HEX2,HEX3,KEY,CLOCK_50,R,count,);
+module zad1(HEX0,HEX1,HEX2,HEX3,KEY,CLOCK_50,fsec,count,);
 	input CLOCK_50;
 	input[0:0] KEY;
 	output[6:0] HEX0;
 	output[6:0] HEX1;
 	output[6:0] HEX2;
 	output[6:0] HEX3;
-	output reg [25:0] R;
+	output reg [25:0] fsec;
 	output reg [9:0] count;
 	
 	initial
@@ -107,11 +104,11 @@ module zad1(HEX0,HEX1,HEX2,HEX3,KEY,CLOCK_50,R,count,);
 	
 	always @(posedge CLOCK_50)
 	begin
-		if (R<50000000)
-			R = R + 1;
+		if (fsec<50000000)
+			fsec = fsec + 1;
 		else
 		begin
-			R = 0;
+			fsec = 0;
 			count = count + 1;
 		end
 		if(!KEY[0])
@@ -143,6 +140,7 @@ module convert_to_hex(dec, hex);
 			default: hex = 7'b1111111;
 		endcase
 endmodule
+
 
 //Stwórz program - stoper:
 
